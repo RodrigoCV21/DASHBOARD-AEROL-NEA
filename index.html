@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Vuelos</title>
+    <link rel="stylesheet" href="EstilosTAREAAEROPUERTO.css">
+    
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+  <script src="barras2.js" defer></script>
+
+
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="contenedor-dashboard">
+    
+    <aside class="barra-lateral">
+        
+        <div class="perfil">
+            <div class="foto-perfil-contenedor">
+                <img src="usuarioprinci.png" alt="Foto de perfil">
+            </div>
+            <h2>ALEX JOHNSON</h2>
+            <span>alex.johnson@gmail.com</span>
+            </div>
+
+        <nav class="menu-navegacion">
+            <ul>
+                <li><a href="#"><span>🏠</span> DASHBOARD</a></li>
+                <li><a href="#"><span>✈️</span> FLIGHTS</a></li>
+                <li><a href="#" ><span>💳</span> WALLET</a></li>
+                <li><a href="#" class="activo"><span>📊</span> REPORTS</a></li>
+        
+
+    
+                <li><a href="#"><span>📈</span> STATISTICS</a></li>
+                <li><a href="#"><span>⚙️</span> SETTINGS</a></li>
+            </ul>
+        </nav>
+
+        <div class="usuarios-activos">
+            <h3>ACTIVE USERS</h3>
+            <div class="lista-usuarios">
+                <img src="usuario.png" alt="Usuario 1">
+                <img src="usuario.png" alt="Usuario 2">
+                <img src="usuario.png" alt="Usuario 3">
+                <span class="contador-usuarios">+70</span>
+            </div>
+            <div class="mapa-mundo">
+                <img src="mapa.png" alt="Mapa" id="Mapa">
+            </div>
+        </div>
+    </aside>
+
+    <main class="contenido-principal">
+        
+        <div class="widget tarjeta-vuelo" id="widget-vuelo1">
+            <div>
+                <span>Boeing 787</span>
+                <strong>$548</strong>
+         </div>
+            <img src="avion.png" alt="avion" id="avion">
+        </div>
+
+        <div class="widget tarjeta-vuelo" id="widget-vuelo2">
+            <div>
+                <span>Airbus 811</span>
+                <strong>$620</strong>
+            </div>
+            <img src="avion.png" alt="avion" id="avion">
+            </div>
+
+        <div class="widget tarjeta-compacta" id="widget-total">
+            <div>    
+                <span>Total Flights</span>
+                <strong>850</strong>
+            </div>
+             <img src="mapa.png" alt="Mapa" id="Mapa">
+            </div>
+
+
+
+
+
+
+        <div class="widget" id="widget-viajes">
+            <h2>Last Trips</h2>
+            <p>Overview of latest month</p>
+            
+            <table class="tabla-viajes">
+                <thead>
+                    <tr>
+                        
+                        <th>Members</th>
+                        <th>Flight</th>
+                        <th>Total Members</th>
+                        <th>Ticket Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div id="pruebaimagen">
+                              <div class="foto-perfil-contenedor-listademien">  
+                                <div id="fotoperfil" class="columna">
+                                    <img src="usuarioprinci.png" alt="Foto de perfil" id="fotolistademiembros">
+                                </div>
+                              </div>
+
+                            <div id="daosdeusuario" class="columna">
+                            <strong>John Doe</strong>
+                            <span>john@gmail.com</span>
+                            </div>
+                            </div>
+                        </td>
+                        <td>Qatar</td>
+                        <td><span class="circulo-numero">5</span></td>
+                        <td><strong>$56k</strong></td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <div id="pruebaimagen">
+                            <div class="foto-perfil-contenedor-listademien">  
+                                <div id="fotoperfil" class="columna">
+                                    <img src="usuarioprinci.png" alt="Foto de perfil" id="fotolistademiembros">
+                                </div>
+                              </div>
+
+                             <div id="daosdeusuario" class="columna">
+                            <strong>Martin Loiness</strong>
+                            <span>martin_loi@gmail.com</span>
+
+                             </div>
+                            </div>
+
+
+                        </td>
+                        <td>Emirates</td>
+                        <td><span class="circulo-numero">2</span></td>
+                        <td><strong>$56k</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="widget" id="widget-stats">
+            <h2>Statistics</h2>
+            <div class="grafico-barras">
+                <div class="barra" style="height: 40%;"><span class="etiqueta">Jan</span></div>
+                <div class="barra" style="height: 70%;"><span class="etiqueta">Feb</span></div>
+                <div class="barra" style="height: 60%;"><span class="etiqueta">Mar</span></div>
+                <div class="barra" style="height: 45%;"><span class="etiqueta">Apr</span></div>
+                <div class="barra" style="height: 70%;"><span class="etiqueta">May</span></div>
+                <div class="barra" style="height: 50%;"><span class="etiqueta">Jun</span></div>
+            </div>
+        </div>
+
+        <div class="widget" id="widget-share">
+            <h2>Flights Share</h2>
+            <div class="grafico-dona-contenedor">
+                <div class="grafico-dona">
+                    <span>Flight<br>Share</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget" id="widget-agenda">
+            <h2>Flights Schedule</h2>
+            <div class="grafico-lineas">
+                    <canvas id="ScheduleChart"></canvas>
+            </div>
+        </div>
+
+
+    
+    </div>
+    </main>
+</body>
+</html>

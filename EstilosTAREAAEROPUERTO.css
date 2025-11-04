@@ -1,0 +1,492 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+    background-color: #f0f4f8; 
+    color: #333;
+    
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; 
+    
+    position: relative;
+    overflow: hidden; 
+}
+
+
+
+/* FIGURAS DE COLORES DEL FONDO         */
+/* ============================================== */
+
+
+body::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background-color: #cc9c3e;
+    border-radius: 50%;
+    opacity: 0.8;
+    z-index: -1; 
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -200px;
+    width: 400px;
+    height: 400px;
+    background-color: #a0c1c0; 
+    border-radius: 50%;
+    opacity: 0.5;
+    z-index: -1; 
+}
+
+
+
+.contenedor-dashboard {
+
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    
+   
+    width: 87vw;  
+    height: 87vh; 
+    
+
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    
+    overflow: hidden;
+    
+    background-color: white;
+}
+
+
+
+/* --- 2. Barra Lateral (Menú) --- */
+.barra-lateral {
+    background-color: #2f5b5a; /* Verde azulado oscuro */
+    color: #a0c1c0; /* Texto grisáceo claro */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 90%;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.perfil {
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+
+
+
+.perfil img {
+    width: 80px;
+    height: 83px;
+    border-radius: 50%;
+    border: 3px solid #f0f4f8;
+    margin-bottom: 10px;
+}
+.perfil h2 {
+    color: white;
+    font-size: 18px;
+}
+.perfil span {
+    font-size: 12px;
+}
+
+
+.foto-perfil-contenedor {
+    width: 80px; 
+    height: 83px;
+    border-radius: 50%;
+
+    background-color: gray;
+    
+    
+    position: relative;
+    margin: 0 auto 10px auto; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- ESTILOS DEL MENÚ INTERACTIVO --- */
+.menu-navegacion {
+    flex-grow: 1; 
+}
+.menu-navegacion ul, .menu-secundario ul {
+    list-style: none;
+    padding: 0;
+}
+.menu-navegacion a, .menu-secundario a {
+    display: flex;
+    align-items: center;
+    padding: 12px 12px;
+    text-decoration: none;
+    color: #a0c1c0;
+    font-size: 14px;
+    font-weight: 500;
+    
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+.menu-navegacion a span, .menu-secundario a span {
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+/* INTERACTIVIDAD: Al pasar el mouse */
+.menu-navegacion a:hover, .menu-secundario a:hover {
+    background-color: #3d6f6e; /* Un poco más claro */
+    color: white;
+}
+
+/* INTERACTIVIDAD: El botón 'activo' */
+.menu-navegacion a.activo {
+    background-color: white; /* Fondo blanco */
+    color: #2a5b59; /* Texto oscuro */
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.usuarios-activos h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.lista-usuarios {
+    display: flex;
+    margin-bottom: 15px;
+}
+.lista-usuarios img {
+    width: 60px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #2a5b59;
+    margin-left: -10px; /* Efecto de superposición */
+}
+.lista-usuarios .contador-usuarios {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f0a500;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: -10px;
+    z-index: 10;
+}
+.mapa-mundo img {
+    width: 100%;
+    border-radius: 10px;
+    opacity: 0.6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- 3. Contenido Principal --- */
+.contenido-principal {
+    overflow-y: auto;
+    padding: 30px;
+    
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto 1fr; /* 3 filas */
+    gap: 15px; /* Espacio entre widgets */
+
+    /* Definimos las áreas */
+    grid-template-areas:
+        "vuelo1   vuelo2   total"
+        "viajes   viajes   stats"
+        "share    agenda   agenda";
+}
+
+/* Estilo base para todos los 'widgets' (tarjetas) */
+.widget {
+    background-color: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* --- 4. Ubicación y Estilos de Widgets Específicos --- */
+
+/* Asignamos cada widget a su área */
+#widget-vuelo1 { grid-area: vuelo1; background-color: #cc9c3e; 
+}
+#widget-vuelo2 { grid-area: vuelo2; background-color: #3f5b5a; }
+#widget-total  { grid-area: total; background-color:#3f5b5a; }
+#widget-viajes { grid-area: viajes; }
+#widget-stats  { grid-area: stats; }
+#widget-share  { grid-area: share; }
+#widget-agenda { grid-area: agenda; }
+
+#avion{
+    height: 130px;
+    display: inline-block;
+    align-items: center;
+    
+    right: 0;
+    position: relative;
+}
+
+
+
+/* Tarjetas compactas sobre vuelos  */
+.tarjeta-vuelo, .tarjeta-compacta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tarjeta-vuelo span, .tarjeta-compacta span { font-size: 16px; font-weight: 500; color: white;}
+.tarjeta-vuelo strong, .tarjeta-compacta strong { font-size: 30px; color: white; }
+
+/* Tabla de Viajes */
+.tabla-viajes {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+.tabla-viajes th, .tabla-viajes td {
+    padding: 12px 0;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+.tabla-viajes th {
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+}
+.tabla-viajes td strong { display: block; font-size: 15px; color: #333; }
+.tabla-viajes td span { font-size: 12px; color: #777; }
+.circulo-numero {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: #f0a500;
+    color: white;
+    text-align: center;
+    font-weight: 700;
+}
+
+
+
+
+
+/* Gráfico de Barras (Simulado con Flex) */
+.grafico-barras {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end; /* Alinea las barras abajo */
+    height: 200px; /* Altura fija para el gráfico */
+    margin-top: 20px;
+}
+.barra {
+    width: 12px;
+    background-color: #2a5b59;
+    border-radius: 5px;
+    position: relative;
+}
+.barra:nth-child(even) { /* Barras pares de otro color */
+    background-color: #a0c1c0;
+}
+.barra .etiqueta {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #888;
+}
+
+/* Gráfico de Dona (Simulado con CSS) */
+.grafico-dona-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.grafico-dona {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /* Gradiente cónico que simula el gráfico */
+    background: conic-gradient(
+        #f0a500 0% 40%, 
+        #2a5b59 40% 75%, 
+        #a0c1c0 75% 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+/* Círculo interior para hacerlo 'dona' */
+.grafico-dona::before {
+    content: '';
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    background: white;
+    border-radius: 50%;
+}
+.grafico-dona span {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Gráfico de Líneas (Placeholder) */
+.grafico-lineas {
+    width: 100%;
+    margin-top: 20px;
+}
+.grafico-lineas img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+
+
+
+/* ============================================== */
+/* ¡ESTO ARREGLA EL GRÁFICO EN BLANCO!     */
+/* ============================================== */
+
+/* 1. Hace que el widget use Flexbox */
+#widget-agenda {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. Le dice al div del gráfico que "crezca" */
+.grafico-lineas {
+    width: 100%;
+    margin-top: 20px;
+
+    flex-grow: 1;
+    
+
+    position: relative; 
+}
+
+
+
+
+
+#pruebaimagen{
+    
+    display: flex;
+    
+    padding: 20px;
+    
+}
+
+.columna {
+    padding: 5px;
+    border-radius: 5px;
+    /* Les damos un ancho base para que no se peguen */
+    width: 48%;
+
+}
+
+
+#fotolistademiembros{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-left: -10px;
+    padding-left: 10px;
+      
+}
+
+.foto-perfil-contenedor-listademien{
+    width: 60px; 
+    height: 60px;
+    border-radius: 50%;
+
+    background-color: rgb(224, 222, 222);
+    
+    
+    position: relative;
+    margin: 1 auto 10px auto;
+    padding-left: 1px;
+    
+}
+
+
+
+
